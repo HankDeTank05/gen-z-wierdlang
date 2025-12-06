@@ -15,7 +15,7 @@ spot_options is giving 'abcdefghi'
 
 finna check_for_win(board) bet
 	lowkey sanity check board size
-	be fucking for real board fit check vibes with 3
+	be fucking for real fit check board vibes with 3
 	bestie x aura farming range(3) bet
 		be fucking for real fit check board pull up x vibes with 3
 

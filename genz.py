@@ -2,6 +2,15 @@ import re
 import sys
 import subprocess
 
+var_func_name_pattern = r'[a-zA-Z_]{1}\w*'
+indexing_pattern = r'\['+var_func_name_pattern+r'\]'
+str_lit_pattern = r'[\'"]{1}.*[\'"]{1}'
+comment_sl_pattern = r'(lowkey )'
+comment_ml_pattern = r'(highkey)((?:\s{0,1})(?:.*\n)*?(?:\s{0,1}))(on god)'
+'''
+(highkey\s?)(\s?on god)
+'''
+
 def transpile(code: str) -> str:
 	'''converts genz code into python code'''
 
@@ -9,7 +18,11 @@ def transpile(code: str) -> str:
 		# commenting
 		
 		# lowkey --> #
-		(r'(lowkey )(.*)', r'# \2'),
+		(r'(lowkey)', r'#'),
+		# highkey _ on god --> """ _ """
+		# (comment_ml_pattern, r'"""\2"""'),
+		(r'(highkey)', '"""'),
+		(r'(on god)', '"""'),
 
 		# other basic stuff
 
@@ -18,7 +31,7 @@ def transpile(code: str) -> str:
 		# sip ? tea --> input(?)
 		(r'(sip )(.*)( tea)', r'input(\2)'),
 		# is giving --> =
-		(r'(\w*)( is giving )(.*)', r'\1 = \3'),
+		(r'( is giving )', ' = '),
 		# <val> is <type>-core --> <type>(<val>)
 		(r'(\w*)( is )(\w*)(-core)', r'\3(\1)'),
 
@@ -28,6 +41,8 @@ def transpile(code: str) -> str:
 		(r'(mid)', 'None'),
 		# green flag --> True
 		(r'(green flag)', 'True'),
+		# red flag --> False
+		(r'(red flag)', 'False'),
 
 		# if stuff
 
@@ -54,8 +69,15 @@ def transpile(code: str) -> str:
 		# crash out --> break
 		(r'(crash out)', 'break'),
 
+		# bestie _ aura farming _ --> for _ in _
+		(r'(bestie )(.*?)( aura farming )(.*)', r'for \2 in \4'),
+
 		# comparison ops
 
+		# A vibes with B --> A == B
+		(r'( vibes with )', ' == '),
+		# A vibe checks B --> A != B
+		(r'( vibe checks )', ' != '),
 		# A ate B and left no crumbs --> A > B
 		(r'(.*)( ate )(.*)( and left no crumbs)', r'\1 > \3'),
 		# A ate B --> A >= B
@@ -63,7 +85,27 @@ def transpile(code: str) -> str:
 		# A got cancelled and ratioed by B --> A < B
 		(r'(.*)( got cancelled and ratioed by )(.*)', r'\1 < \3'),
 		# A got cancelled by B --> A <= B
-		(r'(.*)( got cancelled by )(.*)', r'\1 <= \3')
+		(r'(.*)( got cancelled by )(.*)', r'\1 <= \3'),
+		# _ in _
+		(r'( aura farming )', ' in '),
+
+		# list stuff
+
+		# gyatt --> []
+		(r'(gyatt)', '[]'),
+		# pulled --> .append
+		(r'( pulled )(.*)', r'.append(\2)'),
+		# pull up _ --> [_]
+		(r'( pull up )([\d+\w+])', r'[\2]'),
+		# fit check <list> --> len(<list>)
+		(r'(fit check )((?:'+var_func_name_pattern+r')(?:'+indexing_pattern+r')*)', r'len(\2)'),
+
+		# function stuff
+
+		# finna --> def
+		(r'([\t ]*)(finna)', r'\1def'),
+		# clapback with --> return
+		(r'(clapback with )', 'return '),
 	]
 
 	python_code = code
