@@ -1,0 +1,22 @@
+grade is giving 90.5
+grade_letter is giving mid
+grade_message is giving "You got a"
+
+POV grade ate 90.0 bet
+	grade_letter is giving "A"
+	grade_message is giving grade_message + "n "
+we're so back grade ate 80.0 bet
+	grade_letter is giving "B"
+we're so back grade ate 70.0 bet
+	grade_letter is giving "C"
+we're so back grade ate 60.0 bet
+	grade_letter is giving "D"
+it's so over bet
+	grade_letter is giving "F"
+
+lowkey sanity check
+be fucking for real grade_letter is not mid
+
+grade_message is giving grade_message + grade_letter + "!"
+
+spill grade_message tea

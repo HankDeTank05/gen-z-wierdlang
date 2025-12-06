@@ -1,0 +1,3 @@
+spill "Hello world!" tea
+name is giving sip "What is your name? " tea
+spill "Nice to meet you, " + name + "!" tea

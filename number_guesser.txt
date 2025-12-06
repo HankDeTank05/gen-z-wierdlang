@@ -1,0 +1,41 @@
+range_min is giving 1 lowkey inclusive
+range_max is giving 100 lowkey inclusive
+
+my_num is giving 27 lowkey this is the number they are trying to guess
+guess_num is giving mid lowkey they haven't guessed yet
+
+cooking with green flag bet
+	guess_numstr is giving sip "Guess a number: " tea
+
+	lowkey make sure they typed a number
+	POV guess_numstr.isdigit() bet
+		lowkey convert to int
+		guess_num is giving guess_numstr is int-core
+	it's so over bet
+		spill f"{guess_numstr} is not a number. Guess again." tea
+		say less
+
+	lowkey make sure their number is in the guessing range
+	lowkey check lower bound
+	POV guess_num got cancelled and ratioed by range_min bet
+		spill f"Your number ({guess_num}) was too small. You may not guess lower than {range_min}. Guess again." tea
+		say less
+	
+	lowkey check upper bound
+	we're so back guess_num ate range_max and left no crumbs bet
+		spill f"Your number ({guess_num}) was too large. You may not guess higher than {range_max}. Guess again." tea
+		say less
+	
+	lowkey check if guess is below my number
+	POV guess_num got cancelled and ratioed by my_num bet
+		spill "Too low. Guess again." tea
+		say less
+	
+	lowkey check if guess is above my number
+	we're so back guess_num ate my_num and left no crumbs bet
+		spill "Too high. Guess again." tea
+		say less
+
+	else bet
+		spill "Correct! Good guessing!" tea
+		crash out

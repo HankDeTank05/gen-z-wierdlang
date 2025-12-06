@@ -1,0 +1,68 @@
+highkey
+board is a 2d list, of size 3x3
+if there's no marker in a spot, its value is mid
+otherwise, the corresponding marker is in that spot
+on god
+board is giving gyatt
+bestie y aura farming range(3) bet
+	board pulled gyatt
+	bestie x aura farming range(3) bet
+		board pull up y pulled mid
+marker_x is giving "x"
+marker_o is giving "o"
+current_turn is giving marker_x
+spot_options is giving 'abcdefghi'
+
+finna check_for_win(board) bet
+	lowkey sanity check board size
+	be fucking for real board fit check vibes with 3
+	bestie x aura farming range(3) bet
+		be fucking for real fit check board pull up x vibes with 3
+
+	lowkey check for horizontal win
+	top_win is giving board pull up 0 pull up 0 vibes with board pull up 0 pull up 1 and board pull up 0 pull up 1 vibes with board pull up 0 pull up 2
+	mid_win is giving board pull up 1 pull up 0 vibes with board pull up 1 pull up 1 and board pull up 1 pull up 1 vibes with board pull up 1 pull up 2
+	btm_win is giving board pull up 2 pull up 0 vibes with board pull up 2 pull up 1 and board pull up 2 pull up 1 vibes with board pull up 2 pull up 2
+	horz_win is giving top_win or mid_win or btm_win
+
+	lowkey check for vertical win
+	left_win is giving board pull up 0 pull up 0 vibes with board pull up 1 pull up 0 and board pull up 1 pull up 0 vibes with board pull up 2 pull up 0
+	cntr_win is giving board pull up 0 pull up 1 vibes with board pull up 1 pull up 1 and board pull up 1 pull up 1 vibes with board pull up 2 pull up 1
+	rite_win is giving board pull up 0 pull up 2 vibes with board pull up 1 pull up 2 and board pull up 1 pull up 2 vibes with board pull up 2 pull up 2
+	vert_win is giving left_win or cntr_win or rite_win
+
+	lowkey check for diagonal win
+	backslash_win is giving board pull up 0 pull up 0 vibes with board pull up 1 pull up 1 and board pull up 1 pull up 1 vibes with board pull up 2 pull up 2
+	fwdslash_win is giving board pull up 0 pull up 2 vibes with board pull up 1 pull up 1 and board pull up 1 pull up 1 vibes with board pull up 2 pull up 0
+	diag_win is giving backslash_win or fwdslash_win
+
+	clapback with horz_win or vert_win or diag_win
+
+finna place_marker(marker, x, y) bet
+	highkey claps back with green flag if marker was placed, red flag if not on god
+
+	lowkey don't let them place a marker that isn't one of the player's markers
+	be fucking for real marker vibes with marker_x or marker vibes with marker_o
+
+	lowkey make sure they gave valid board coords
+	be fucking for real x ate 0
+	be fucking for real 3 ate x and left no crumbs
+	be fucking for real y ate 0
+	be fucking for real 3 ate y and left no crumbs
+
+	board_spot_val = board pull up y pull up x
+	lowkey
+	POV board_spot_val is mid bet
+		board pull up y pull up x is giving marker
+		clapback with green flag
+	it's so over bet
+		clapback with red flag
+
+cooking with not check_for_win(board) bet
+	lowkey let them know whose turn it is
+	spot_selection is giving sip f"It's player {current_turn}'s turn. Where would you like to place your marker?" tea
+	POV not spot_selection.isalpha() bet
+		spill f"Selection must be one of the following letters: {spot_options}. Please try again" tea
+	POV spot_selection.lower() not aura farming spot_options bet
+		spill f"{spot_selection} is not a valid spot. Please try again." tea
+		say less
