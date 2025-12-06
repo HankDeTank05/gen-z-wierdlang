@@ -50,7 +50,7 @@ finna place_marker(marker, x, y) bet
 	be fucking for real y ate 0
 	be fucking for real 3 ate y and left no crumbs
 
-	board_spot_val = board pull up y pull up x
+	board_spot_val is giving board pull up y pull up x
 	lowkey
 	POV board_spot_val is mid bet
 		board pull up y pull up x is giving marker
