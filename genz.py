@@ -130,7 +130,7 @@ def main():
 
 	# automatically run the python file
 	print(f'🏃 Running {output_fname}...\n')
-	subprocess.run(['python', output_fname])
+	subprocess.run(['python3', output_fname])
 
 if __name__ == "__main__":
 	main()
