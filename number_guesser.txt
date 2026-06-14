@@ -36,6 +36,6 @@ cooking with green flag bet
 		spill "Too high. Guess again." tea
 		say less
 
-	else bet
+	it's so over bet
 		spill "Correct! Good guessing!" tea
 		crash out
